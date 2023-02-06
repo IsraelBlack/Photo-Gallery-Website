@@ -1,4 +1,5 @@
 body {
+
     margin: 0px;
 }
 
@@ -6,6 +7,8 @@ body {
     display: grid;
     grid-template-columns: 1fr;
 }
+
+/*Nav-bar*/
 
 .nav-wrapper {
     display: flex;
@@ -17,13 +20,130 @@ body {
     display: flex;
 }
 
-.nav-wrapper >.left > div {
+.nav-wrapper >.nav-left > div {
     margin-right: 20px;
     text-transform: uppercase;
     font-size: 0.9em;
 }
 
-.nav-left-wrapper{
+.nav-link-wrapper{
     height: 22px;
     border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s;
+} 
+
+.active-nav-link {
+    border-bottom: 1px solid black;
 }
+
+.active-nav-link a{
+    color: black !important;
+    text-decoration: none;
+}
+
+.nav-link-wrapper a {
+    color: #8a8a8a;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.nav-link-wrapper .active-nav-link {
+    text-decoration: none;
+    height: 22px;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.5s;
+}
+
+.nav-link-wrapper a:hover {
+    color: black;
+}
+
+/*Hamburger Menu*/
+
+.hamburger {
+    position: relative;
+    display: block;
+    width: 35px;
+    cursor: pointer;
+    margin-right: 30px ;
+
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.hamburger .bar, .hamburger::after, .hamburger::before { /*search up before and after*/
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0px;
+    transition: 0.4s;
+}
+
+.hamburger.is-active::before{
+    transform: translate(0px, 11px) rotate(-45deg) ;
+}
+
+.hamburger.is-active::after{
+    transform: translate(0px, -11px) rotate(45deg) ;
+}
+
+.hamburger.is-active .bar {
+    opacity: 0;
+    
+}
+
+.hamburger.is-active {
+
+    width: 40px;
+   
+}
+
+.mobile-nav {
+    display: block;
+    position: fixed;
+    top: 8%;
+    right: 100%;
+    width: 30%;
+   
+    z-index: 98;
+    background-color: white;
+    padding: 10px 0px;
+    transition:  0.4s;
+}
+
+.mobile-nav.is-active {
+    right: 66%;
+}
+
+.mobile-nav a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    
+    padding: 14px 0px;
+    
+    color: black;
+    text-decoration: none;
+
+    border-bottom:  solid black;
+}
+
+.mobile-nav a:hover {
+    background-color: whitesmoke;
+}
+
+/*Portfolio*/
+
+.portfolio-items-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.portfolio-items-wrapper{
+    position: relative;
+}
+
